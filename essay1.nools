@@ -1,0 +1,41 @@
+import("productionRules.nools");
+
+global probtxt = "Do you agree or disagree with the following statement? “Overall, the widespread use of the internet has a mostly positive effect on life in today’s world.” Use reasons and details to support your opinion.";
+
+global linktxt = "https:\/\/docs.google.com\/document\/d\/1e9ycIM9U-DAw5GV9c-abKMddbw5Q4XlB0Y_QESojaE0\/edit";
+
+global p1_ans = 1;
+
+global l1_ans = 2;
+
+global l2_ans = 1;
+
+global R1_ans = 1;
+
+global sentence1_ans = "For example, an online magazine recently published a story revealing that the mayor of my hometown had taken bribes from a property developer.";
+
+global hint1 = "The word 'for example' shows that the author uses example as supporting evidence.";
+
+global l3_ans = 1;
+
+global R2_ans = 1;
+
+global sentence2_ans =  "My own experience demonstrates this concept.";
+
+global hint2 = "The author uses his or her own experience as example to demonstrate the concept.";
+
+global p2_ans = 4;
+
+global l4_ans = 1;
+
+global sel1_ans = 5;
+
+global sel2_ans = 3;
+
+global sel3_ans = 1;
+
+global sel4_ans = 4; 
+
+global sel5_ans = 6;
+
+global sel6_ans = 2;
