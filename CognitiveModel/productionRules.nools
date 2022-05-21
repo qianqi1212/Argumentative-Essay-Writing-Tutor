@@ -1,0 +1,378 @@
+import("types.nools");
+
+
+function overlap(s, t) {
+    var list_s = s.split(/\b\s+(?!$)/);
+    var list_t = t.split(/\b\s+(?!$)/);
+    var overlap = list_s.filter(value => list_t.includes(value));
+    return overlap.length / list_t.length;
+}
+
+rule Bootstrap {
+	when {
+		bool : Boolean bool == false from false;
+	}
+	then {
+        
+		// interface elements first, may help with the order of the hints
+		let p1 = assert(new TextInput("p1", ""));
+		let l1 = assert(new TextInput("l1", ""));
+		let l2 = assert(new TextInput("l2", ""));
+		let r1 = assert(new RadioButton("r1", "opt1", null, "radioGroup1"));
+        let r2 = assert(new RadioButton("r2", "opt2", null, "radioGroup1"));
+        let r3 = assert(new RadioButton("r3", "opt3", null, "radioGroup1"));
+        let sentence1 = assert(new TextInput("sentence1", ""));
+        let l3 = assert(new TextInput("l3", ""));
+        let r4 = assert(new RadioButton("r4", "R2: Option 1", null, "radioGroup2"));
+        let r5 = assert(new RadioButton("r5", "R2: Option 2", null, "radioGroup2"));
+        let r6 = assert(new RadioButton("r6", "R2: Option 3", null, "radioGroup2"));
+		let sentence2 = assert(new TextInput("sentence2", ""));
+        let p2 = assert(new TextInput("p2", ""));
+        let l4 = assert(new TextInput("l4", ""));
+        let sel1 = assert(new TextInput("sel1", ""));
+        let sel2 = assert(new TextInput("sel2", ""));
+        let sel3 = assert(new TextInput("sel3", ""));
+        let sel4 = assert(new TextInput("sel4", ""));
+        let sel5 = assert(new TextInput("sel5", ""));
+        let sel6 = assert(new TextInput("sel6", ""));
+        let reflections = assert(new TextInput("reflections", ""));
+       
+        
+		// need to add code to create Problem and Options, and to link facts as needed
+		assert(new Problem(p1, p2, l1, l2, l3, l4, reflections, r1, r2, r3, r4, r5, r6, sel1, sel2, sel3, sel4, sel5, sel6, sentence1, sentence2));
+        
+        
+		// set start state values in the interface
+		assert(new TPA("probtxt", "UpdateTextArea", probtxt));
+		assert(new TPA("linkbox", "UpdateTextArea", linktxt));
+
+		//setProblemAttribute("use_backtracking", true);
+		//setProblemAttribute("prune_old_activations", true);
+		halt();
+	}
+}
+
+
+rule Enterp1 {
+    when {
+        p : Problem { p1 : p1};
+        ie: TextInput ie.name == "p1" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: p1_ans})) {
+            modify(ie, "value", p1_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the main thesis of the essay."));
+    }
+}
+
+
+rule Enterl1 {
+    when {
+        p : Problem { l1 : l1};
+        ie0: TextInput ie0.name == "p1" && ie0.value;
+        ie: TextInput ie.name == "l1" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: l1_ans})) {
+            modify(ie, "value", l1_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the main thesis of the essay. Enter the Paragraph entry first if you have not."));
+    }
+}
+
+
+rule Enterl2 {
+    when {
+        p : Problem { l2 : l2};
+        ie0: TextInput ie0.name == "l1" && ie0.value;
+        ie: TextInput ie.name == "l2" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: l2_ans})) {
+            modify(ie, "value", l2_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the author's thesis in Paragraph 2. Identify the main thesis first if you have not."));
+    }
+}
+
+rule SelectR1 {
+    when {
+        p : Problem;
+        ie0: TextInput ie0.name == "l2" && ie0.value;
+        button1: RadioButton button1.name == "r1" && !button1.value {input: inp1};
+        button2: RadioButton button2.name == "r2" && !button2.value {input: inp2};
+        button3: RadioButton button3.name == "r3" && !button3.value {input: inp3};
+    }
+    then {
+        var inp = "";
+        var gp = "";
+        if (R1_ans == 1) { inp = "r1: ";}
+        if (R1_ans == 2) { inp = "r2: ";}
+        if (R1_ans == 3) { inp = "r3: ";}
+        if (checkSAI({selection: "1", action: "UpdateRadioButton", input: inp})) {
+            modify(button1, "value", inp);
+            modify(button2, "value", inp);
+            modify(button3, "value", inp);
+            halt();
+        }
+        assert(new Hint(hint1));
+    }
+}
+
+
+rule EnterSent1 {
+    when {
+        p : Problem;
+        button1: RadioButton button1.name == "r1" && button1.value;
+        button2: RadioButton button2.name == "r2" && button2.value;
+        button3: RadioButton button3.name == "r3" && button3.value;
+        ie: TextInput ie.name == "sentence1" && !ie.value {name : sel};
+    }
+    then {
+        let predictedSAI = {selection: sel, action: "UpdateTextField", input : sentence1_ans};
+        
+        if (checkSAI(predictedSAI, function(s,t) {  
+            if (s.selection == t.selection && s.action == t.action && (overlap(s.input, t.input) >= 0.8)) {
+                t.input = s.input;
+                return true;
+            } else {
+                return false;
+            }
+            })) {
+                modify(ie, "value", predictedSAI.input);
+                halt();
+                }
+        assert(new Hint(hint1));
+    }
+}
+
+
+rule Enterl3 {
+    when {
+        p : Problem { l3 : l3};
+        ie0: TextInput ie0.name == "sentence1" && ie0.value;
+        ie: TextInput ie.name == "l3" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: l3_ans})) {
+            modify(ie, "value", l3_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the author's thesis in Paragraph 3"));
+    }
+}
+
+
+rule SelectR2 {
+    when {
+        p : Problem;
+        ie0: TextInput ie0.name == "sentence1" && ie0.value;
+        button1: RadioButton button1.name == "r4" && !button1.value {input: inp1};
+        button2: RadioButton button2.name == "r5" && !button2.value {input: inp2};
+        button3: RadioButton button3.name == "r6" && !button3.value {input: inp3};
+    }
+    then {
+        var inp = "";
+        if (R2_ans == 1) { inp = "r4: ";}
+        if (R2_ans == 2) { inp = "r5: ";}
+        if (R2_ans == 3) { inp = "r6: ";}
+        if (checkSAI({selection: "2", action: "UpdateRadioButton", input: inp})) {
+            modify(button1, "value", inp);
+            modify(button2, "value", inp);
+            modify(button3, "value", inp);
+            halt();
+        }
+        assert(new Hint(hint2));
+    }
+}
+
+
+rule EnterSent2 {
+    when {
+        p : Problem;
+        button1: RadioButton button1.name == "r4" && button1.value;
+        button2: RadioButton button2.name == "r5" && button2.value;
+        button3: RadioButton button3.name == "r6" && button3.value;
+        ie: TextInput ie.name == "sentence2" && !ie.value {name : sel};
+    }
+    then {
+        let predictedSAI = {selection: sel, action: "UpdateTextField", input : sentence2_ans};
+        
+        if (checkSAI(predictedSAI, function(s,t) {  
+            if (s.selection == t.selection && s.action == t.action && (overlap(s.input, t.input) >= 0.8)) {
+                t.input = s.input;
+                return true;
+            } else {
+                return false;
+            }
+            })) {
+                modify(ie, "value", predictedSAI.input);
+                halt();
+                }
+        assert(new Hint(hint2));
+    }
+}
+
+
+rule Enterp2 {
+    when {
+        p : Problem { p2 : p2};
+        ie0: TextInput ie0.name == "sentence2" && ie0.value;
+        ie: TextInput ie.name == "p2" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: p2_ans})) {
+            modify(ie, "value", p2_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the main conclusion of the essay."));
+    }
+}
+
+rule Enterl4 {
+    when {
+        p : Problem { l4 : l4};
+        ie0: TextInput ie0.name == "p2" && ie0.value {value : paragraph};
+        ie: TextInput ie.name == "l4" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: l4_ans})) {
+            modify(ie, "value", l4_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the author's conclusion in Paragraph " + paragraph));
+    }
+}
+
+rule EnterSel1 {
+    when {
+        p : Problem { sel1 : sel1};
+        ie0: TextInput ie0.name == "l4" && ie0.value;
+        ie: TextInput ie.name == "sel1" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: sel1_ans})) {
+            modify(ie, "value", sel1_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the first step."));
+    }
+}
+
+rule EnterSel2 {
+    when {
+        p : Problem { sel2 : sel2};
+        ie0: TextInput ie0.name == "sel1" && ie0.value;
+        ie: TextInput ie.name == "sel2" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: sel2_ans})) {
+            modify(ie, "value", sel2_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the second step."));
+    }
+}
+
+rule EnterSel3 {
+    when {
+        p : Problem { sel3 : sel3};
+        ie0: TextInput ie0.name == "sel2" && ie0.value;
+        ie: TextInput ie.name == "sel3" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: sel3_ans})) {
+            modify(ie, "value", sel3_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the third step."));
+    }
+}
+
+rule EnterSel4 {
+    when {
+        p : Problem { sel4 : sel4};
+        ie0: TextInput ie0.name == "sel3" && ie0.value;
+        ie: TextInput ie.name == "sel4" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: sel4_ans})) {
+            modify(ie, "value", sel4_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the fourth step."));
+    }
+}
+
+rule EnterSel5 {
+    when {
+        p : Problem { sel5 : sel5};
+        ie0: TextInput ie0.name == "sel4" && ie0.value;
+        ie: TextInput ie.name == "sel5" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: sel5_ans})) {
+            modify(ie, "value", sel5_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the fifth step."));
+    }
+}
+
+rule EnterSel6 {
+    when {
+        p : Problem { sel6 : sel6};
+        ie0: TextInput ie0.name == "sel5" && ie0.value;
+        ie: TextInput ie.name == "sel6" && !ie.value {name : sel};
+    }
+    then {
+        if (checkSAI({selection: sel, action: "UpdateTextField", input: sel6_ans})) {
+            modify(ie, "value", sel6_ans);
+            halt();
+        }
+        assert(new Hint("Please identify the last step."));
+    }
+}
+
+rule EnterReflection {
+    when {
+        p : Problem { sel6 : sel6};
+        ie0: TextInput ie0.name == "sel6" && ie0.value;
+        ie: TextInput ie.name == "reflections" && !ie.value {name : sel};
+    }
+    then {
+        let predictedSAI = {selection: sel, action: "UpdateTextField", input: ""};
+        if (checkSAI(predictedSAI, function(s,t) {  
+            if (s.selection == t.selection && s.action == t.action) {
+                t.input = s.input;
+                return true;
+            } else {
+                return false;
+            }
+            })) {
+                modify(ie, "value", predictedSAI.input);
+                halt();
+            }
+    }
+}
+
+rule clickDone {
+    when {
+        p : Problem;
+        ie0: TextInput ie0.name == "reflections" && ie0.value;
+    }
+    then {
+        let predictedSAI = {selection: "done", action: "ButtonPressed", input: -1};
+        if (checkSAI(predictedSAI)) {
+            setSuccessOrBugMsg("Congratulations! You've succeeded in completing this!");
+            modify(p, "done", true);
+            halt();
+        } else {
+            backtrack();
+        }
+    }   
+}

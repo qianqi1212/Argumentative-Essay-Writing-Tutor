@@ -1,0 +1,41 @@
+import("productionRules.nools");
+
+global probtxt = "Do you agree or disagree with the following statement?  In my country, young people have better lives than their parents had when they were young.  Use reasons and examples to support your answer.";
+
+global linktxt = "https:\/\/docs.google.com\/document\/d\/1ijbX1BwAeJTogo575evUfap2tuYmeqLbmbsuX5hZJlE\/edit";
+
+global p1_ans = 1;
+
+global l1_ans = 2;
+
+global l2_ans = 1;
+
+global R1_ans = 1;
+
+global sentence1_ans = "For example, nowadays I receive five weeks off from my job each year.";
+
+global hint1 = "The author uses his/her own experience as supporting evidence.";
+
+global l3_ans = 1;
+
+global R2_ans = 1;
+
+global sentence2_ans =  "My own experience, is a compelling example of this.";
+
+global hint2 = "The author uses his/her own experience as supporting evidence.";
+
+global p2_ans = 4;
+
+global l4_ans = 1;
+
+global sel1_ans = 5;
+
+global sel2_ans = 3;
+
+global sel3_ans = 1;
+
+global sel4_ans = 4; 
+
+global sel5_ans = 6;
+
+global sel6_ans = 2;
