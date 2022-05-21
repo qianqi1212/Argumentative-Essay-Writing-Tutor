@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- generator meta tag -->
+    <!-- leave this for stats and Silex version check -->
+    <meta name="generator" content="Silex v2.2.5">
+    <!-- End of generator meta tag -->
+    <!--CSS-->
+    <link data-silex-static="true" href="css/silex/normalize.css" rel="stylesheet">
+    <link data-silex-static="true" href="css/silex/front-end.css" rel="stylesheet">
+    <link data-silex-static="true" href="https://cdn.ctat.cs.cmu.edu/releases/current/CTAT.css" rel="stylesheet">
+    <!--JS-->
+    <script data-silex-static="true" type="text/javascript" src="js/jquery.js"></script>
+    <script data-silex-static="true" type="text/javascript" src="js/jquery-ui.js"></script>
+    <script data-silex-static="true" type="text/javascript" src="https://cdn.ctat.cs.cmu.edu/releases/current/nools.js"></script>
+    <script data-silex-static="true" type="text/javascript" src="https://cdn.ctat.cs.cmu.edu/releases/current/ctatloader.js"></script>
+    <script data-silex-static="true" type="text/javascript" src="js/ctat/ctat_editor.min.js"></script>
+    <script type="text/javascript" src="js/silex/mut_observer.js"></script>
+    <script type="text/javascript" src="js/silex/pageable.js"></script>
+    <script type="text/javascript" src="js/silex/front-end.js"></script>
+
+    <style class="silex-inline-styles" type="text/css">
+        .body-initial {background-color: rgb(255, 255, 255);
+        }
+        .silex-id-1649120755722-75 {top: 60px; left: 20px; height: 40px; width: 60px;
+        }
+        .silex-id-1649113557169-1 {top: 20px; left: 100px; height: 40px; width: 500px; font-size: 18px; font-style: italic; font-weight: bold;
+        }
+        .silex-id-1649120016275-63 {top: 180px; left: 80px; height: 40px; width: 600px; border-style: solid;
+        }
+        .silex-id-1649120784648-76 {top: 180px; left: 20px; height: 20px; width: 100px;
+        }
+        .silex-id-1649116821863-40 {top: 380px; left: 60px; height: 20px; width: 100px;
+        }
+        .silex-id-1649116531879-33 {top: 380px; left: 20px; height: 20px; width: 40px;
+        }
+        .silex-id-1649116741305-37 {top: 380px; left: 180px; height: 20px; width: 40px;
+        }
+        .silex-id-1649116876954-42 {top: 380px; left: 220px; height: 20px; width: 80px;
+        }
+        .silex-id-1649116901481-44 {top: 380px; left: 400px; height: 20px; width: 100px;
+        }
+        .silex-id-1649119108793-56 {top: 320px; left: 20px; height: 20px; width: 420px;
+        }
+        .silex-id-1649119140240-59 {top: 320px; left: 540px; height: 20px; width: 60px;
+        }
+        .silex-id-1649119144388-60 {top: 320px; left: 600px; height: 20px; width: 40px;
+        }
+        .silex-id-1649118936368-51 {top: 300px; left: 20px; height: 20px; width: 280px; font-weight: bold; font-style: normal;
+        }
+        .silex-id-1649115486298-19 {top: 260px; left: 20px; height: 20px; width: 280px;
+        }
+        .silex-id-1649115522935-20 {top: 260px; left: 340px; height: 20px; width: 100px;
+        }
+        .silex-id-1649115595307-24 {top: 260px; left: 460px; height: 20px; width: 40px;
+        }
+        .silex-id-1649115560087-23 {top: 260px; left: 540px; height: 20px; width: 60px;
+        }
+        .silex-id-1649115612488-25 {top: 260px; left: 600px; height: 20px; width: 40px;
+        }
+        .silex-id-1649115376877-16 {top: 240px; left: 0px; height: 20px; width: 720px; border-width: 1.5px 0px 0px; border-style: solid;
+        }
+        .silex-id-1649119570280-61 {top: 360px; left: 20px; height: 20px; width: 640px;
+        }
+        .silex-id-1649119908003-62 {top: 140px; left: 20px; height: 40px; width: 720px;
+        }
+        .silex-id-1649115459461-18 {top: 720px; left: 0px; height: 20px; width: 720px; border-width: 1.5px 0px 0px; border-style: solid;
+        }
+        .silex-id-1649116957414-45 {top: 700px; left: 20px; height: 20px; width: 320px;
+        }
+        .silex-id-1649117028850-46 {top: 700px; left: 340px; height: 20px; width: 100px;
+        }
+        .silex-id-1649689089468-1 {top: 440px; left: 20px; height: 40px; width: 640px;
+        }
+        .silex-id-1649120229323-65 {top: 520px; left: 20px; height: 20px; width: 420px;
+        }
+        .silex-id-1649120232648-66 {top: 520px; left: 540px; height: 40px; width: 60px;
+        }
+        .silex-id-1649120235911-67 {top: 520px; left: 600px; height: 20px; width: 40px;
+        }
+        .silex-id-1649120266348-68 {top: 560px; left: 20px; height: 20px; width: 620px;
+        }
+        .silex-id-1649120339198-70 {top: 580px; left: 60px; height: 20px; width: 100px;
+        }
+        .silex-id-1649120321394-69 {top: 580px; left: 20px; height: 20px; width: 40px;
+        }
+        .silex-id-1649120343890-71 {top: 580px; left: 180px; height: 20px; width: 40px;
+        }
+        .silex-id-1649120348345-72 {top: 580px; left: 220px; height: 20px; width: 80px;
+        }
+        .silex-id-1649120357696-73 {top: 580px; left: 360px; height: 20px; width: 40px;
+        }
+        .silex-id-1649120360681-74 {top: 580px; left: 400px; height: 20px; width: 100px;
+        }
+        .silex-id-1649689116391-3 {top: 640px; left: 20px; height: 40px; width: 640px;
+        }
+        .silex-id-1649117036639-48 {top: 700px; left: 460px; height: 20px; width: 40px;
+        }
+        .silex-id-1649117040124-49 {top: 700px; left: 540px; height: 20px; width: 60px;
+        }
+        .silex-id-1649117044867-50 {top: 700px; left: 600px; height: 20px; width: 40px;
+        }
+        .background-initial {background-color: rgb(255, 255, 255); top: -40px; left: 154px; width: 726px; height: 1260px;
+        }
+        .silex-id-1649642220168-2 {top: 740px; left: 20px; height: 160px; width: 640px;
+        }
+        .silex-id-1649642814674-11 {top: 940px; left: 20px; height: 22px; width: 40px;
+        }
+        .silex-id-1649642833373-12 {top: 940px; left: 120px; height: 20px; width: 40px;
+        }
+        .silex-id-1649642835249-13 {top: 940px; left: 220px; height: 22px; width: 40px;
+        }
+        .silex-id-1649642737273-6 {top: 920px; left: 120px; height: 20px; width: 80px;
+        }
+        .silex-id-1649642717686-3 {top: 920px; left: 20px; height: 20px; width: 80px;
+        }
+        .silex-id-1649642746668-7 {top: 920px; left: 220px; height: 20px; width: 80px;
+        }
+        .silex-id-1649642755154-8 {top: 920px; left: 320px; height: 20px; width: 80px;
+        }
+        .silex-id-1649642762894-9 {top: 920px; left: 420px; height: 20px; width: 100px;
+        }
+        .silex-id-1649642771708-10 {top: 920px; left: 520px; height: 20px; width: 100px;
+        }
+        .silex-id-1649642211192-1 {top: 1000px; left: 0px; height: 20px; width: 720px; border-width: 1.5px 0px 0px; border-style: solid;
+        }
+        .silex-id-1649114067480-13 {top: 1020px; left: 40px; height: 40px; width: 280px;
+        }
+        .silex-id-1649114034287-12 {top: 1080px; left: 40px; height: 120px; width: 280px;
+        }
+        .silex-id-1649113708713-3 {top: 1040px; left: 360px; height: 140px; width: 280px; display: flex;
+        }
+        .silex-id-1649113715559-4 {top: 1180px; left: 360px; height: 64px; width: 140px;
+        }
+        .silex-id-1649113719211-5 {top: 1180px; left: 500px; height: 64px; width: 140px;
+        }
+        .silex-id-1649689336853-5 {top: 620px; left: 20px; height: 20px; width: 640px;
+        }
+        .silex-id-1649689417756-6 {top: 940px; left: 320px; height: 22px; width: 40px;
+        }
+        .silex-id-1649689419835-8 {top: 940px; left: 520px; height: 22px; width: 40px;
+        }
+        .silex-id-1649689419118-7 {top: 940px; left: 420px; height: 22px; width: 40px;
+        }
+        .silex-id-1649114249677-14 {top: 60px; left: 60px; height: 60px; width: 600px; border-style: solid;
+        }
+        .silex-id-1649705819646-1 {top: 500px; left: 20px; height: 20px; width: 160px; font-weight: bold;
+        }
+        .silex-id-1649706224510-0 {top: 420px; left: 20px; height: 20px; width: 560px;
+        }
+        .silex-id-1649116754577-39 {top: 380px; left: 360px; height: 20px; width: 40px;
+        }
+    </style>
+
+
+
+    <style type="text/css" class="silex-style"></style>
+    <script type="text/notjavascript" class="silex-script"></script>
+    <meta name="interface-id" content="5">
+
+    <meta name="asset-map" content="{}">
+
+
+
+
+
+
+
+
+    <meta name="parent-data" content="{&quot;id&quot;:&quot;1ghNUcdCjt7qxtQ9fhapSrgliyPSl6pHc&quot;, &quot;path&quot;:&quot;/proj/HTML/5&quot;}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style id="current-page-style">
+        .page-page-1{display:inherit; }
+    </style>
+    <!-- Silex HEAD tag do not remove -->
+    <!-- End of Silex HEAD tag do not remove -->
+</head>
+<!--onload = "ctatOnload();"-->
+
+<body data-silex-id="body-initial" class="body-initial prevent-draggable silex-runtime" data-silex-type="container" onload="ctatOnload();" style="">
+    <a id="page-page-1" data-silex-type="page" class="page-element">Page 1</a>
+    <div data-silex-id="background-initial" class="background background-initial editable-style container-element prevent-draggable" data-silex-type="container">
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649113557169-1 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649113557169-1" id="ctatdiv7" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Argumentative Essay Writing: Sample Essay Evaluation</div>
+        <div data-silex-type="ctat" class="CTATHintWindow editable-style silex-id-1649113708713-3 CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649113708713-3" id="ctatdiv12" data-ctat-component="CTATHintWindow" onkeypress="return noenter(event)"
+        data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" id="hint" class="CTATHintButton editable-style silex-id-1649113715559-4 page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649113715559-4" data-ctat-component="CTATHintButton" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" id="done" class="CTATDoneButton editable-style silex-id-1649113719211-5 page-page-1 paged-element CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649113719211-5" data-ctat-component="CTATDoneButton" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style silex-id-1649114034287-12 page-page-1 paged-element CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649114034287-12" id="reflections" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649114067480-13 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649114067480-13" id="ctatdiv41" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Enter your reflections and thoughts after evaluating this sample essay.</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649114249677-14 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649114249677-14" id="probtxt" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649115376877-16 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649115376877-16" id="ctatdiv21" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false"></div>
+
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649115459461-18 page-page-1 paged-element" data-silex-id="silex-id-1649115459461-18" id="ctatdiv25" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649115486298-19 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649115486298-19" id="ctatdiv30" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Where is the author's main thesis?</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649115522935-20 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649115522935-20" id="ctatdiv33" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Paragraph #</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649115560087-23 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649115560087-23" id="ctatdiv31" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Line #</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style silex-id-1649115595307-24 page-page-1 paged-element CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649115595307-24" id="p1" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649115612488-25 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649115612488-25" id="l1" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+
+
+        <div data-silex-type="ctat" class="CTATRadioButton editable-style silex-id-1649116531879-33 page-page-1 paged-element CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649116531879-33" id="r1" data-ctat-component="CTATRadioButton" data-ctat-enabled="true"
+        name="1"></div>
+
+
+
+        <div data-silex-type="ctat" class="CTATRadioButton editable-style CTATComponent silex-id-1649116741305-37 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649116741305-37" id="r2" data-ctat-component="CTATRadioButton" data-ctat-enabled="true"
+        name="1"></div>
+
+        <div data-silex-type="ctat" class="CTATRadioButton editable-style CTATComponent silex-id-1649116754577-39 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649116754577-39" id="r3" data-ctat-component="CTATRadioButton" data-ctat-enabled="true"
+        name="1"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649116821863-40 page-page-1 paged-element" data-silex-id="silex-id-1649116821863-40" id="ctatdiv58" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Example</div>
+
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649116876954-42 page-page-1 paged-element" data-silex-id="silex-id-1649116876954-42" id="ctatdiv64" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Citatations</div>
+
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649116901481-44 page-page-1 paged-element" data-silex-id="silex-id-1649116901481-44" id="ctatdiv70" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Statistics</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649116957414-45 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649116957414-45" id="ctatdiv75" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Where is the author's conclusion?</div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649117028850-46 page-page-1 paged-element" data-silex-id="silex-id-1649117028850-46" id="ctatdiv76" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Paragraph #</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649117036639-48 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649117036639-48" id="p2" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649117040124-49 page-page-1 paged-element" data-silex-id="silex-id-1649117040124-49" id="ctatdiv86" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Line #</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649117044867-50 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649117044867-50" id="l4" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649118936368-51 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649118936368-51" id="ctatdiv95" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Paragraph#2</div>
+
+
+
+
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649119108793-56 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649119108793-56" id="ctatdiv112" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Where is the author's thesis for this paragraph?</div>
+
+
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649119140240-59 page-page-1 paged-element" data-silex-id="silex-id-1649119140240-59" id="ctatdiv120" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Line #</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649119144388-60 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649119144388-60" id="l2" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649119570280-61 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649119570280-61" id="ctatdiv129" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">What kind of evidences does the author use to support this thesis?</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649119908003-62 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649119908003-62" id="ctatdiv100" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Think about the topic first. Then read the sample essay and answer the following questions.</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649120016275-63 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649120016275-63" id="linkbox" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false"></div>
+
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649120229323-65 page-page-1 paged-element" data-silex-id="silex-id-1649120229323-65" id="ctatdiv105" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Where is the author's thesis for this paragraph?</div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649120232648-66 page-page-1 paged-element" data-silex-id="silex-id-1649120232648-66" id="ctatdiv108" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Line #</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649120235911-67 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649120235911-67" id="l3" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649120266348-68 page-page-1 paged-element" data-silex-id="silex-id-1649120266348-68" id="ctatdiv115" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">What kind of evidences does the author use to support this thesis?</div>
+        <div data-silex-type="ctat" class="CTATRadioButton editable-style CTATComponent silex-id-1649120321394-69 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649120321394-69" id="r4" data-ctat-component="CTATRadioButton" data-ctat-enabled="true"
+        name="2"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649120339198-70 page-page-1 paged-element" data-silex-id="silex-id-1649120339198-70" id="ctatdiv121" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Example</div>
+        <div data-silex-type="ctat" class="CTATRadioButton editable-style CTATComponent silex-id-1649120343890-71 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649120343890-71" id="r5" data-ctat-component="CTATRadioButton" data-ctat-enabled="true"
+        name="2"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649120348345-72 page-page-1 paged-element" data-silex-id="silex-id-1649120348345-72" id="ctatdiv127" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Citatations</div>
+        <div data-silex-type="ctat" class="CTATRadioButton editable-style CTATComponent silex-id-1649120357696-73 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649120357696-73" id="r6" data-ctat-component="CTATRadioButton" data-ctat-enabled="true"
+        name="2"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649120360681-74 page-page-1 paged-element" data-silex-id="silex-id-1649120360681-74" id="ctatdiv133" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Statistics</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649120755722-75 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649120755722-75" id="ctatdiv138" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Topic:</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649120784648-76 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649120784648-76" id="ctatdiv141" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Link:</div>
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649642211192-1 page-page-1 paged-element" data-silex-id="silex-id-1649642211192-1" id="ctatdiv101" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642220168-2 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642220168-2" id="ctatdiv106" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">How to write an argumentative essay? Arrange the following steps in a reasonable order.
+            <br>1. Think of supporting evidences for each sub-thesis statements.
+            <br>2. Polish the whole essay.
+            <br>3. Construct the sub-thesis statements
+            <br>4. Construct the conclusion paragraph.
+            <br>5. Construct the main thesis statement.
+            <br>6. Put pieces together and construct the whole essay.
+            <br>Put numeric numbers in the answer boxes.</div>
+
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642737273-6 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642737273-6" id="ctatdiv113" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Step2</div>
+
+
+
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642771708-10 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642771708-10" id="ctatdiv125" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Step6</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style silex-id-1649642814674-11 page-page-1 paged-element CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649642814674-11" id="sel1" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649642833373-12 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649642833373-12" id="sel2" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649642835249-13 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649642835249-13" id="sel3" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+
+
+
+        <div data-silex-type="ctat" class="CTATTextInput editable-style silex-id-1649689089468-1 page-page-1 paged-element CTATComponent" data-ctat-tabindex="1" data-silex-id="silex-id-1649689089468-1" id="sentence1" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649689116391-3 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649689116391-3" id="sentence2" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642717686-3 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642717686-3" id="ctatdiv104" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Step1</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642746668-7 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642746668-7" id="ctatdiv116" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Step3</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642755154-8 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642755154-8" id="ctatdiv119" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Step4</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649642762894-9 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649642762894-9" id="ctatdiv122" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Step5</div>
+
+        <div data-silex-type="text" class="CTATTextField editable-style text-element CTATComponent silex-id-1649689336853-5 page-page-1 paged-element" data-silex-id="silex-id-1649689336853-5" id="ctatdiv149" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">What is the corresponding sentence in original essay for this evidence?</div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649689417756-6 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649689417756-6" id="sel4" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649689419118-7 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649689419118-7" id="sel5" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="ctat" class="CTATTextInput editable-style CTATComponent silex-id-1649689419835-8 page-page-1 paged-element" data-ctat-tabindex="1" data-silex-id="silex-id-1649689419835-8" id="sel6" data-ctat-component="CTATTextInput" data-ctat-enabled="true"></div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649705819646-1 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649705819646-1" id="ctatdiv148" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">Paragraph#3</div>
+        <div data-silex-type="text" class="CTATTextField editable-style silex-id-1649706224510-0 text-element page-page-1 paged-element CTATComponent" data-silex-id="silex-id-1649706224510-0" id="ctatdiv144" data-ctat-component="CTATTextBasedComponent" data-ctat-enabled="true"
+        contenteditable="false">What is the corresponding sentence in original essay for this evidence?</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
